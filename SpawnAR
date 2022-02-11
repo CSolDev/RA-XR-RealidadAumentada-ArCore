@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnAR : MonoBehaviour
+{
+    public GameObject fisrtSpawn;
+    private PlacementSpawn placementSpawn;
+
+
+    void Start ()
+    {
+        placementSpawn = FindObjectOfType<PlacementSpawn>();
+    }
+
+    void Update ()
+    {
+        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        {
+            GameObject objet = Instantiate(fisrtSpawn, 
+            PlacementSpawn.transform.position, placementSpawn.transform.rotation);
+        }
+    }
+}
